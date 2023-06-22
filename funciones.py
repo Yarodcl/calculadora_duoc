@@ -9,7 +9,7 @@ def calcular_iva():
             continue
             #Termino While
     iva = (producto * 19) / 100
-    round(iva, 2)
+    iva = round(iva, 2)
     print(f'El IVA de tú producto es: ${iva}')
     
 def calcular_descuento():
@@ -34,10 +34,40 @@ def calcular_descuento():
 
     descuento = (producto * porcentaje) / 100
     valor_final = producto - descuento
+    valor_final = round(valor_final, 2)
 
-    print(f'El valor de tú producto es de : ${producto}')
-    print(f'El porcentaje de tú producto es de : ${porcentaje}')
     print(f'El descuento de tú producto es de : ${descuento}')
     print(f"El valor final de tú producto es de: ${valor_final}")
 
-calcular_descuento()
+def calcular_imc():
+    while True:
+        print('Para calcular tú indice de masa corporal necesitaremos tanto tú peso como tú estatura')
+        peso = input("Ingresa tú peso: ")
+        estatura = input("Ingresa tú estatura: ")
+        try:
+            peso = float(peso)
+            estatura = float(estatura)
+            break
+        except:
+            print('Datos invalidos, reintentar')
+            continue
+
+    imc = peso / (estatura ** 2)
+    imc = round(imc, 1)
+
+    if imc < 18.5:
+        print(f'Su IMC es de {imc}, por lo que usted se encuentra bajo peso')
+    elif imc == 18.5 or imc <= 24.9:
+        print(f'Su IMC es de {imc}, por lo que usted se encuentra en un peso adecuado')
+    elif imc == 25.0 or imc <= 29.9:
+        print(f'Su IMC es de {imc}, por lo que usted se encuentra con sobrepeso')
+    elif imc == 30.0 or imc <= 34.9:
+        print(f'Su IMC es de {imc}, por lo que usted se encuentra en un nivel de obesidad grado 1')
+    elif imc == 35.0 or imc <= 39.9:
+        print(f'Su IMC es de {imc}, por lo que usted se encuentra en un nivel de obesidad grado 2')
+    elif imc > 40:
+        print(f'Su IMC es de {imc}, por lo que usted se encuentra en un nivel de obesidad grado 3')
+    else:
+        print('No valido')
+
+
